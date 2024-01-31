@@ -1,0 +1,44 @@
+<div class="modal_head">
+    <i class="icon_close" onclick="common.modal_hide()"></i>
+</div>
+<div class="modal_body">
+    <div class="input_group_modal">
+        <div>First Name</div>
+        <input type="text" id="first_name" value="{$user.first_name}">
+        <div class="errors" id="first_name_errors"></div>
+
+    </div>
+    <div class="input_group_modal">
+        <div>Last Name</div>
+        <input type="text" id="last_name" value="{$user.last_name}">
+        <div class="errors" id="last_name_errors"></div>
+    </div>
+    <div class="input_group_modal">
+        <div>Phone</div>
+        <input type="phone" id="phone" value="{$user.phone}">
+        <div class="errors" id="phone_errors"></div>
+    </div>
+    <div class="input_group_modal">
+        <div>Email</div>
+        <input type="email" id="email" value="{$user.email}">
+        <div class="errors" id="email_errors"></div>
+    </div>
+    <div class="input_group_modal">
+        <div>Plot</div>
+        <input type="text" id="plots_ids" value="{$user.users_plots_ids}">
+        <div class="errors" id="plots_ids_errors"></div>
+        <datalist id="all_plots_ids">
+            {section name=i loop=$user.all_plots_ids}
+            <option id="all_plots_ids_{$user.all_plots_ids[i]}" value="{$user.all_plots_ids[i]}">{$user.all_plots_ids[i]}</option>
+            {/section}
+        </datalist>
+    </div>
+    <div class="modal_controls">
+        <div>
+            <div class="btn_modal" onclick="common.user_edit_update({$user.user_id});">Save</div>
+        </div>
+        <div>
+            <div class="btn_modal light" onclick="common.modal_hide();">Cancel</div>
+        </div>
+    </div>
+</div>
